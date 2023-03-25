@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { API_ENDPOINT } from '../Context'
 
+const url =
+  "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
+
 const SingleMovie = () => {
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +54,7 @@ const SingleMovie = () => {
 
   return (
     <section className="single-movie">
-      <img src={Poster} alt={Title} />
+      <img src={Poster === "N/A" ? url : Poster} alt={Title} />
       <div className="single-movie-info">
         <h2>{Title}</h2>
         <p>{Plot}</p>
