@@ -1,8 +1,13 @@
 import React from 'react'
+import Movies from './Movies'
+import SearchForm from './SearchForm'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <main>
+    <SearchForm/>
+    <Movies/>
+    </main>
   )
 }
 
