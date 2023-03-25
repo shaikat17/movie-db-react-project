@@ -1,13 +1,30 @@
-import React from 'react'
-import { useGlobalContext } from '../Context'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { useGlobalContext } from "../Context";
+import { Link } from "react-router-dom";
 
 const Movies = () => {
-  const data = useGlobalContext()
-  console.log(data)
+  const { movies, isLoading } = useGlobalContext();
+  // console.log(movies);
+  if (isLoading) {
+    return <div className="loading"></div>;
+  }
   return (
-    <div>Movies</div>
-  )
-}
+    <section className="movies">
+      {movies.map((movie) => {
+        const { Poster, Title, Type, Year, imdbID: id } = movie;
+        // console.log(Poster)
+        return <Link to={`/movies/${id}`} key={id} className="movie">
+        <article>
+        <img src={Poster} alt={Title} />
+        <div className="movie-info">
+        <h4 className="title">{Title}</h4>
+        <p>{Year}</p>
+        </div>
+        </article>
+        </Link>;
+      })}
+    </section>
+  );
+};
 
-export default Movies
+export default Movies;

@@ -5,7 +5,7 @@ export const API_ENDPOINT = `https://www.omdbapi.com/?apikey=${
   import.meta.env.VITE_APP_MOVIE_DB_API_KEY
 }`;
 
-console.log(API_ENDPOINT);
+// console.log(API_ENDPOINT);
 
 const AppContext = React.createContext()
 
